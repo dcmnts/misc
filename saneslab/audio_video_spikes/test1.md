@@ -1,8 +1,11 @@
 # Raster plot test
 
-It seems the spike trains only go up to 167 seconds, whereas I thought the duration was supposed to be 15 minutes.
+Here's a raster plot
 
-https://figurl.org/f?v=gs://figurl/figneuro-1&d=sha1://f1722bc23ad55be2a2c0af7189303536f360194d&label=Raster%20plot
+https://figurl.org/f?v=gs://figurl/figneuro-1&d=sha1://4edcfa971e3804bae7a383d512ae4f12a37ce039&label=Raster%20plot
+<!--
+height: 400
+-->
 
 Script for generating this:
 
@@ -13,7 +16,7 @@ import kachery_cloud as kcl
 import figneuro.spike_sorting.views as ssv
 
 
-spikes_npy_uri = 'sha1://96197669d7355a153683597a4f0fed376ecf785b?label=spikes.npy'
+spikes_npy_uri = 'sha1://d0357a63035753a4520b990170e0c59c8ef417f5?label=spikes.npy'
 
 def main():
     spikes_path = kcl.load_file(spikes_npy_uri)
