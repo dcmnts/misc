@@ -24,6 +24,8 @@ See create_audio_spectrogram.py
 
 There is a delay in loading the audio spectrogram (see above). Once the spectrogram loads, the time range is set to the first 120 seconds. If you zoom out too far, the GUI slows down.
 
+I think we can store the spectrogram in a better representation - then things will be much faster.
+
 https://figurl.org/f?v=gs://figurl/figneuro-1&d=sha1://8205fcf0d147461cc3931cb1fde54c48e6b7f80b&label=composite%20view
 <!--
 height: 700
