@@ -11,9 +11,9 @@ See create_raster_plot.py
 
 ## Audio spectrogram
 
-The loading delay is due to the time it takes to decompress that spectrogram, plus the time it takes to send the very large decompressed array to the child view.
+The audio spectrogram is a lot more responsive and faster loading with the new compressed representation.
 
-https://figurl.org/f?v=gs://figurl/figneuro-1&d=sha1://8c043b845568d0cfc327045174bf409bef250866&label=audio%20spectrogram
+https://figurl.org/f?v=gs://figurl/figneuro-1&d=sha1://ef00235bf3402333f9d7ae6fcdf930b7738577ae&label=audio%20spectrogram
 <!--
 height: 400
 -->
@@ -22,11 +22,9 @@ See create_audio_spectrogram.py
 
 ## Composite view
 
-There is a delay in loading the audio spectrogram (see above). Once the spectrogram loads, the time range is set to the first 120 seconds. If you zoom out too far, the GUI slows down.
+Once the spectrogram loads, the time range is set to the first 120 seconds.
 
-I think we can store the spectrogram in a better representation - then things will be much faster.
-
-https://figurl.org/f?v=gs://figurl/figneuro-1&d=sha1://199746fec65b42ec3797418aee3d16d97d9d9ac9&label=composite%20view
+https://figurl.org/f?v=gs://figurl/figneuro-1&d=sha1://be70069aef0630dc70aaa7b9279dc9ba9d6c059f&label=composite%20view
 <!--
 height: 1000
 -->

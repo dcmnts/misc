@@ -66,7 +66,7 @@ def create_audio_spectrogram():
     spectrogram_for_gui[spectrogram_for_gui <= threshold] = 0
 
     print(spectrogram_for_gui.shape)
-    V = sl.AudioSpectrogram(
+    V = sl.SparseAudioSpectrogram(
         sampling_frequency=sr_spectrogram,
         spectrogram_data=spectrogram_for_gui.T
     )
