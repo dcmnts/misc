@@ -4,8 +4,12 @@ from typing import List
 import kachery_cloud as kcl
 from scipy.io import wavfile
 from matplotlib.pyplot import specgram
-from config import mic_wav_uri
 
+
+video_timestamps_npy_uri = 'sha1://df13b1efdc8ba07a1c1e64c3710cc5bbc5ef6394?label=video_timestamps_s.npy'
+spikes_npy_uri = 'sha1://d0357a63035753a4520b990170e0c59c8ef417f5?label=spikes.npy'
+camera_avi_uri = 'sha1://6fe810f0e96288f362a29ed3844ff3623f43588b?label=2022_08_26_16_25_27_533291_cam_b.avi'
+mic_wav_uri = 'sha1://3aeecc0796895f06909a2116a6fd22f99cd7751b?label=mic_2022_08_26_16_25_27_533291_combined.wav'
 
 def main():
     V = create_audio_spectrogram()
