@@ -27,6 +27,7 @@ def create_audio_spectrogram():
     # in spectrogram_for_gui
     # everything below the value is set to zero
     # affects detection and compressed file size
+    # threshold_pct = 99.8
     threshold_pct = 99.8
     
     print('Extracting audio signals')
@@ -78,7 +79,7 @@ def _auto_detect_spectrogram_maxval(spectrogram: np.array, *, sr_spectrogram: fl
         chunk = spectrogram[:, i:i + chunk_num_samples]
         chunk_maxvals.append(np.max(chunk))
         i += chunk_num_samples
-    v = np.median(chunk_maxvals)
+    v = np.median(chunk_maxvals) / 6
     return v
 
 if __name__ == '__main__':

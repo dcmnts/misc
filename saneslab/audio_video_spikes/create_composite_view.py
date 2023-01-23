@@ -1,4 +1,5 @@
 from create_raster_plot import create_raster_plot
+from create_firing_rates_plot import create_firing_rates_plot
 from create_audio_spectrogram import create_audio_spectrogram
 import figneuro.views as vv
 
@@ -10,15 +11,19 @@ def main():
 
 def create_composite_view():
     V_rp = create_raster_plot()
+    V_fr = create_firing_rates_plot()
     V_as = create_audio_spectrogram()
     view = vv.Box(
         direction='vertical',
         items=[
             vv.LayoutItem(
-                V_rp
+                V_as
             ),
             vv.LayoutItem(
-                V_as
+                V_fr
+            ),
+            vv.LayoutItem(
+                V_rp
             )
         ]
     )
