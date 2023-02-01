@@ -2,7 +2,7 @@
 
 From `/mnt/home/rpeterson/ceph/ephys_audio_video_better`
 
-https://figurl.org/f?v=gs://figurl/figneuro-1&d=sha1://473aa2c67ed8cce01558fa26487d99cb82a3b4e4&label=composite%20view&zone=default
+https://figurl.org/f?v=gs://figurl/figneuro-1&d=sha1://f66bf4940c4b36bc337d07f6fd5d42bee43b271c&label=composite%20view
 <!--
 height: 700
 -->

@@ -1,3 +1,6 @@
+# 2/2/23
+# https://figurl.org/f?v=gs://figurl/figneuro-1&d=sha1://a9f52d9f0d7d89cba5ee194961fe41ea5ab9bd8d&label=camera
+
 import figneuro.saneslab.views as sl
 import kachery_cloud as kcl
 from config import camera_ogv_uri
