@@ -1,5 +1,5 @@
-# 2/2/23
-# https://figurl.org/f?v=gs://figurl/figneuro-1&d=sha1://6ce24f977b04520d0d28edc3b0c76e03f6db5f35&label=composite%20view
+# 2/3/23
+# https://figurl.org/f?v=gs://figurl/figneuro-1&d=sha1://73ba63a0ab552f9d124bc5b6a09254c822576fa0&label=composite%20view
 
 from create_raster_plot import create_raster_plot
 from create_firing_rates_plot import create_firing_rates_plot

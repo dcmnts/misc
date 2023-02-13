@@ -1,3 +1,5 @@
+# https://figurl.org/f?v=gs://figurl/figneuro-1&d=sha1://1a27dad4d2206c5eb3dc8a6cdfaf1ee0fc7115e3&label=Firing%20rates%20plot
+
 import numpy as np
 from typing import List
 import kachery_cloud as kcl
@@ -18,7 +20,8 @@ def create_firing_rates_plot():
     firing_rates_plot = slv.FiringRatesPlot(
         start_time_sec=0,
         end_time_sec=end_time_sec,
-        plots=plots
+        plots=plots,
+        hide_toolbar=True
     )
     return firing_rates_plot
 

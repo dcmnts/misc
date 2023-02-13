@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 def create_head_velocity_plot():
     head_velocity = kcl.load_npy(head_velocity_npy_uri)
     sampling_frequency = 30 # same as camera
-    tg = vv.TimeseriesGraph()
+    tg = vv.TimeseriesGraph(hide_toolbar=True)
     tg.add_line_series(
         name='head-velocity',
         t=(np.arange(0, len(head_velocity)) / sampling_frequency).astype(np.float32),

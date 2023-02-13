@@ -18,7 +18,8 @@ def create_raster_plot():
     raster_plot = ssv.RasterPlot(
         start_time_sec=0,
         end_time_sec=end_time_sec,
-        plots=plots
+        plots=plots,
+        hide_toolbar=True
     )
     return raster_plot
 
