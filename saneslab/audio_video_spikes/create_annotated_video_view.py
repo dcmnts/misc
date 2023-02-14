@@ -1,11 +1,11 @@
-# 2/2/23
-# https://figurl.org/f?v=gs://figurl/figneuro-1&d=sha1://a9f52d9f0d7d89cba5ee194961fe41ea5ab9bd8d&label=camera
+# 2/14/23
+# https://figurl.org/f?v=gs://figurl/figneuro-1&d=sha1://15a1e4e24c8118c297b79e13b50ecae419004512&label=annotated%20video
 
 from typing import List
 import numpy as np
 import figneuro.misc.views as mv
 import kachery_cloud as kcl
-from config import camera_ogv_uri
+from config import camera_ogv_uri, head_annotations_npy_uri, nose_annotations_npy_uri, butt_annotations_npy_uri
 import cv2
 
 
@@ -26,27 +26,35 @@ def create_annotated_video_view():
     print(f'fps: {fps}')
     print(f'num_frames: {num_frames}')
 
+    head_annotations = kcl.load_npy(head_annotations_npy_uri).astype(np.float32)
+    butt_annotations = kcl.load_npy(butt_annotations_npy_uri).astype(np.float32)
+    nose_annotations = kcl.load_npy(nose_annotations_npy_uri).astype(np.float32)
+
     annotation_frames: List[mv.AnnotationFrame] = []
     for j in range(num_frames):
         elements: List[mv.AnnotationElement] = []
-        theta1 = j * 2 * np.pi / 100
-        theta2 = j * 2 * np.pi / 60
-        theta3 = j * 2 * np.pi / 40
-        a = height
-        x1 = (a / 2 + a / 3 * np.cos(theta1)).astype(np.float32)
-        y1 = (a / 2 + a / 3 * np.sin(theta1)).astype(np.float32)
-        x2 = (a / 2 + a / 5 * np.cos(theta2)).astype(np.float32)
-        y2 = (a / 2 + a / 5 * np.sin(theta2)).astype(np.float32)
-        x3 = (a / 2 + a / 7 * np.cos(theta3)).astype(np.float32)
-        y3 = (a / 2 + a / 7 * np.sin(theta3)).astype(np.float32)
-        elements.append(mv.NodeElement('0', x=x1, y=y1))
-        elements.append(mv.NodeElement('1', x=x2, y=y2))
-        elements.append(mv.NodeElement('2', x=x3, y=y3))
-        elements.append(mv.EdgeElement('0-1', id1='0', id2='1'))
-        elements.append(mv.EdgeElement('1-2', id1='1', id2='2'))
+        p_head = head_annotations[j]
+        p_butt = butt_annotations[j]
+        p_nose = nose_annotations[j]
+        if not np.isnan(p_head[0]):
+            elements.append(mv.NodeElement('h', x=p_head[0], y=p_head[1]))
+        if not np.isnan(p_butt[0]):
+            elements.append(mv.NodeElement('b', x=p_butt[0], y=p_butt[1]))
+        if not np.isnan(p_nose[0]):
+            elements.append(mv.NodeElement('n', x=p_nose[0], y=p_nose[1]))
+        if not np.isnan(p_nose[0]) and not np.isnan(p_head[0]):
+            elements.append(mv.EdgeElement('n-h', id1='n', id2='h'))
+        if not np.isnan(p_head[0]) and not np.isnan(p_butt[0]):
+            elements.append(mv.EdgeElement('h-b', id1='h', id2='b'))
         F = mv.AnnotationFrame(elements=elements)
         annotation_frames.append(F)
     annotations_uri = mv.create_annotations_uri(annotation_frames)
+
+    nodes: List[mv.AnnotatedVideoNode] = [
+        mv.AnnotatedVideoNode(id='n', label='nose', color_index=0),
+        mv.AnnotatedVideoNode(id='h', label='head', color_index=1),
+        mv.AnnotatedVideoNode(id='b', label='butt', color_index=2)
+    ]
 
     V = mv.AnnotatedVideo(
         video_uri=camera_ogv_uri,
@@ -54,7 +62,8 @@ def create_annotated_video_view():
         video_height=height,
         video_num_frames=num_frames,
         sampling_frequency=fps,
-        annotations_uri=annotations_uri
+        annotations_uri=annotations_uri,
+        nodes=nodes
     )
     return V
 

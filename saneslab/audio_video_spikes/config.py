@@ -16,3 +16,7 @@ mic_wav_uri = 'sha1://c59c69a73c64d49d8da795e2f6cd66d088e50935?label=mic_2021_08
 
 # 0.5 MB
 head_velocity_npy_uri = 'sha1://dc71cc4b13d2162dfb16747fbb4ffef9b18688e5?label=head_velocity_newSmooth.npy'
+
+nose_annotations_npy_uri = 'sha1://e2f20d56d6e4ecbce18112027a8cc13e3554d3ac?label=nose_annotations_noInterp.npy'
+butt_annotations_npy_uri = 'sha1://d35f0f5a6deceb49c3fd0528ee52566a804ccd37?label=butt_annotations_noInterp.npy'
+head_annotations_npy_uri = 'sha1://e1c57fb7dac7c493db5b884d43c819763011a779?label=head_annotations_noInterp.npy'
