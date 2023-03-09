@@ -1,10 +1,11 @@
-# 2/14/23
-# https://figurl.org/f?v=gs://figurl/figneuro-1&d=sha1://7ea4170fca6904aaf40ae12a20735df934b9bf2a&label=composite%20view
+# 2/23/23
+# https://figurl.org/f?v=gs://figurl/figneuro-1&d=sha1://73ba63a0ab552f9d124bc5b6a09254c822576fa0&label=composite%20view
 
 from create_raster_plot import create_raster_plot
 from create_firing_rates_plot import create_firing_rates_plot
 from create_audio_spectrogram import create_audio_spectrogram
 from create_annotated_video_view import create_annotated_video_view
+from create_camera_view import create_camera_view
 from create_head_velocity_plot import create_head_velocity_plot
 import figneuro.views as vv
 
@@ -15,7 +16,8 @@ def main():
     print(url)
 
 def create_composite_view():
-    V_camera = create_annotated_video_view()
+    V_camera = create_camera_view()
+    # V_camera = create_annotated_video_view()
     # V_empty = vv.Empty()
     V_raster = create_raster_plot()
     V_firing_rate = create_firing_rates_plot()
